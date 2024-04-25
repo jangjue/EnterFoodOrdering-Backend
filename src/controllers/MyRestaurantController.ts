@@ -3,7 +3,7 @@ import Restaurant from "../models/restaurant";
 import cloudinary from "cloudinary";
 import mongoose from "mongoose";
 //import Order from "../models/order";
-{/*
+
 const getMyRestaurant = async (req: Request, res: Response) => {
   try {
     const restaurant = await Restaurant.findOne({ user: req.userId });
@@ -16,7 +16,7 @@ const getMyRestaurant = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Error fetching restaurant" });
   }
 };
-*/}
+
 const createMyRestaurant = async (req: Request, res: Response) => {
   try {
     const existingRestaurant = await Restaurant.findOne({ user: req.userId });
@@ -40,7 +40,7 @@ const createMyRestaurant = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Something went wrong" });
   }
 };
-{/* 
+
 const updateMyRestaurant = async (req: Request, res: Response) => {
   try {
     const restaurant = await Restaurant.findOne({
@@ -72,7 +72,7 @@ const updateMyRestaurant = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Something went wrong" });
   }
 };
-
+{/* 
 const getMyRestaurantOrders = async (req: Request, res: Response) => {
   try {
     const restaurant = await Restaurant.findOne({ user: req.userId });
@@ -130,7 +130,7 @@ const uploadImage = async (file: Express.Multer.File) => {
 export default {
   //updateOrderStatus,
   //getMyRestaurantOrders,
-  //getMyRestaurant,
+  getMyRestaurant,
   createMyRestaurant,
-  //updateMyRestaurant,
+  updateMyRestaurant,
 };

@@ -13,6 +13,7 @@ const upload = multer({
     fileSize: 5 * 1024 * 1024, //5mb
   },
 });
+
 {/* 
 router.get(
   "/order",
@@ -27,18 +28,18 @@ router.patch(
   jwtParse,
   MyRestaurantController.updateOrderStatus
 );
-
-router.get("/", jwtCheck, jwtParse, MyRestaurantController.getMyRestaurant);
 */}
+router.get("/", jwtCheck, jwtParse, MyRestaurantController.getMyRestaurant);
+
 router.post(
   "/",
   upload.single("imageFile"),
-  //validateMyRestaurantRequest,
-  //jwtCheck,
-  //jwtParse,
+  validateMyRestaurantRequest,
+  jwtCheck,
+  jwtParse,
   MyRestaurantController.createMyRestaurant
 );
-{/* 
+ 
 router.put(
   "/",
   upload.single("imageFile"),
@@ -47,5 +48,5 @@ router.put(
   jwtParse,
   MyRestaurantController.updateMyRestaurant
 );
-*/}
+
 export default router;
