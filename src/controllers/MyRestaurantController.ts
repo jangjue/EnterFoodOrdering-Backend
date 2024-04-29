@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import Restaurant from "../models/restaurant";
 import cloudinary from "cloudinary";
 import mongoose from "mongoose";
-//import Order from "../models/order";
+import Order from "../models/order";
 
 const getMyRestaurant = async (req: Request, res: Response) => {
   try {
@@ -72,7 +72,7 @@ const updateMyRestaurant = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Something went wrong" });
   }
 };
-{/* 
+
 const getMyRestaurantOrders = async (req: Request, res: Response) => {
   try {
     const restaurant = await Restaurant.findOne({ user: req.userId });
@@ -116,7 +116,7 @@ const updateOrderStatus = async (req: Request, res: Response) => {
     res.status(500).json({ message: "unable to update order status" });
   }
 };
-*/}
+
 
 const uploadImage = async (file: Express.Multer.File) => {
   const image = file;
@@ -128,8 +128,8 @@ const uploadImage = async (file: Express.Multer.File) => {
 };
 
 export default {
-  //updateOrderStatus,
-  //getMyRestaurantOrders,
+  updateOrderStatus,
+  getMyRestaurantOrders,
   getMyRestaurant,
   createMyRestaurant,
   updateMyRestaurant,
